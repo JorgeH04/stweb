@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 
 //bbdd
-//const { mongoose } = require('./database');
+const { mongoose } = require('./database');
 
 
 
@@ -19,13 +19,12 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'views')));
 
-//importing routes
-const indexRoutes = require('./routes/index');
 
 
 
 //routes
-app.use('/', indexRoutes);
+app.use('/api/post', require('./routes/index'));
+
 
 
 // server
