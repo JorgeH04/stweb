@@ -29,4 +29,10 @@ router.post('/', async (req, res) => {
   res.json({status: 'Task Saved'});
 });
 
+
+router.delete('/:id', async (req, res) => {
+  await Post.findByIdAndRemove(req.params.id);
+  res.json({status: 'Task Deleted'});
+});
+
 module.exports = router;
